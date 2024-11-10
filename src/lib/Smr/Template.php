@@ -85,9 +85,9 @@ class Template {
 
 		// Now that we are completely done processing, we can output
 		if ($outputXml) {
-			header('Content-Type: text/xml; charset=utf-8');
+			header('Content-Type: text/xml; CHARSET=UTF8MB4-8');
 		} else {
-			header('Content-Type: text/html; charset=utf-8');
+			header('Content-Type: text/html; CHARSET=UTF8MB4-8');
 		}
 		echo $output;
 	}

@@ -6,4 +6,4 @@ CREATE TABLE `alliance_invites_player` (
   `invited_by_id` smallint unsigned NOT NULL,
   `expires` int unsigned NOT NULL,
   PRIMARY KEY (`game_id`,`account_id`,`alliance_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;

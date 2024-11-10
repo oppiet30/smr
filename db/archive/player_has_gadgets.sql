@@ -27,4 +27,4 @@ CREATE TABLE `player_has_gadget` (
   `equipped` int(11) NOT NULL default '0',
   `lasts_until` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`game_id`,`account_id`,`gadget_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;

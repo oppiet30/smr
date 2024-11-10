@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS `ship_class` (
 	`ship_class_id` int unsigned AUTO_INCREMENT PRIMARY KEY,
 	`ship_class_name` varchar(100)  NOT NULL DEFAULT 'NO CLASS'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 /* so far I know of only 5 classes */
 INSERT INTO `ship_class` (`ship_class_id`, `ship_class_name`) VALUES 

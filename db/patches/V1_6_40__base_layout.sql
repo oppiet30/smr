@@ -48,27 +48,27 @@ CREATE TABLE IF NOT EXISTS `account` (
   `hotkeys` text NOT NULL,
   PRIMARY KEY (`account_id`),
   FULLTEXT KEY `login` (`login`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `account_auth` (
   `account_id` smallint unsigned NOT NULL,
   `login_type` varchar(100) NOT NULL,
   `auth_key` varchar(100) NOT NULL,
   PRIMARY KEY (`account_id`,`login_type`,`auth_key`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_donated` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
   `time` int unsigned NOT NULL DEFAULT '0',
   `amount` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`time`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_exceptions` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
   `reason` varchar(255) NOT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_has_closing_history` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -76,14 +76,14 @@ CREATE TABLE IF NOT EXISTS `account_has_closing_history` (
   `admin_id` smallint unsigned NOT NULL DEFAULT '0',
   `action` enum('Closed','Opened') NOT NULL DEFAULT 'Closed',
   PRIMARY KEY (`account_id`,`time`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_has_credits` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
   `credits_left` smallint unsigned NOT NULL DEFAULT '0',
   `reward_credits` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_has_ip` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `account_has_ip` (
   `ip` varchar(16) NOT NULL,
   `host` varchar(64) NOT NULL,
   PRIMARY KEY (`account_id`,`time`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_has_logs` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -101,20 +101,20 @@ CREATE TABLE IF NOT EXISTS `account_has_logs` (
   `message` varchar(255) NOT NULL,
   `sector_id` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `account_has_permission` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
   `permission_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`permission_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_has_points` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
   `points` tinyint unsigned NOT NULL DEFAULT '0',
   `last_update` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_has_stats` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `account_has_stats` (
   `killed_ships` int unsigned NOT NULL DEFAULT '0',
   `died_ships` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`kills`,`experience_traded`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_is_closed` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -160,13 +160,13 @@ CREATE TABLE IF NOT EXISTS `account_is_closed` (
   `suspicion` varchar(255) NOT NULL,
   `expires` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_sms_blacklist` (
   `account_id` smallint unsigned NOT NULL,
   `reason` varchar(255) NOT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_sms_dlr` (
   `message_id` int unsigned NOT NULL,
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `account_sms_dlr` (
   `status` varchar(255) NOT NULL,
   `announce` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `account_sms_log` (
   `log_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `account_sms_log` (
   `response_code` tinyint unsigned NOT NULL,
   `message_id` int unsigned NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `account_sms_response` (
   `response_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -195,14 +195,14 @@ CREATE TABLE IF NOT EXISTS `account_sms_response` (
   `from` int NOT NULL,
   `announce` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`response_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `account_votes_for_feature` (
   `account_id` int unsigned NOT NULL,
   `feature_request_id` int unsigned NOT NULL,
   `vote_type` enum('FAVOURITE','YES','NO') NOT NULL DEFAULT 'FAVOURITE',
   PRIMARY KEY (`account_id`,`feature_request_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `active_session` (
   `session_id` char(32) NOT NULL,
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `active_session` (
   `ajax_returns` mediumblob NOT NULL,
   `old_account_id` smallint unsigned NOT NULL,
   PRIMARY KEY (`session_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `album` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `album` (
   `approved` enum('YES','NO','TBC') NOT NULL DEFAULT 'TBC',
   `disabled` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `album_has_comments` (
   `album_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `album_has_comments` (
   `msg` varchar(255) NOT NULL,
   PRIMARY KEY (`album_id`,`comment_id`),
   KEY `comment_id` (`comment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance` (
   `alliance_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `alliance` (
   `hill_points` int unsigned NOT NULL DEFAULT '0',
   `recruiting` enum('TRUE','FALSE') NOT NULL,
   PRIMARY KEY (`alliance_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_bank_transactions` (
   `alliance_id` int unsigned NOT NULL DEFAULT '0',
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `alliance_bank_transactions` (
   `exempt` tinyint unsigned NOT NULL DEFAULT '0',
   `request_exempt` tinyint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`alliance_id`,`game_id`,`transaction_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_has_op` (
   `alliance_id` smallint unsigned NOT NULL,
@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `alliance_has_op` (
   `no` varchar(4096) NOT NULL,
   `maybe` varchar(4096) NOT NULL,
   PRIMARY KEY (`alliance_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_has_roles` (
   `alliance_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -306,14 +306,14 @@ CREATE TABLE IF NOT EXISTS `alliance_has_roles` (
   `treaty_entry` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   `treaty_created` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`alliance_id`,`game_id`,`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_has_seedlist` (
   `alliance_id` smallint unsigned NOT NULL,
   `game_id` tinyint unsigned NOT NULL,
   `sector_id` smallint unsigned NOT NULL,
   PRIMARY KEY (`alliance_id`,`game_id`,`sector_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_thread` (
   `game_id` tinyint unsigned NOT NULL DEFAULT '0',
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `alliance_thread` (
   `sender_id` mediumint NOT NULL DEFAULT '0',
   `time` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`alliance_id`,`thread_id`,`reply_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_thread_topic` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `alliance_thread_topic` (
   `topic` varchar(255) NOT NULL,
   `alliance_only` tinyint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`alliance_id`,`thread_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_treaties` (
   `alliance_id_1` smallint NOT NULL DEFAULT '0',
@@ -352,7 +352,7 @@ CREATE TABLE IF NOT EXISTS `alliance_treaties` (
   `mod_read` enum('TRUE','FALSE') NOT NULL,
   `official` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`alliance_id_1`,`alliance_id_2`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `alliance_vs_alliance` (
   `game_id` int NOT NULL DEFAULT '0',
@@ -360,7 +360,7 @@ CREATE TABLE IF NOT EXISTS `alliance_vs_alliance` (
   `alliance_id_2` int NOT NULL DEFAULT '0',
   `kills` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`alliance_id_1`,`alliance_id_2`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `announcement` (
   `announcement_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -368,7 +368,7 @@ CREATE TABLE IF NOT EXISTS `announcement` (
   `admin_id` smallint unsigned NOT NULL DEFAULT '0',
   `msg` text NOT NULL,
   PRIMARY KEY (`announcement_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `anon_bank` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -377,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `anon_bank` (
   `password` varchar(20) NOT NULL,
   `amount` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`anon_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `anon_bank_transactions` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -388,20 +388,20 @@ CREATE TABLE IF NOT EXISTS `anon_bank_transactions` (
   `amount` int unsigned NOT NULL DEFAULT '0',
   `time` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`game_id`,`anon_id`,`transaction_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `bar_drink` (
   `drink_id` int unsigned NOT NULL AUTO_INCREMENT,
   `drink_name` varchar(255) NOT NULL,
   PRIMARY KEY (`drink_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `bar_tender` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `message_id` int unsigned NOT NULL DEFAULT '0',
   `message` varchar(255) NOT NULL,
   PRIMARY KEY (`game_id`,`message_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `bar_wall` (
   `sector_id` int unsigned NOT NULL DEFAULT '0',
@@ -410,20 +410,20 @@ CREATE TABLE IF NOT EXISTS `bar_wall` (
   `message` varchar(255) NOT NULL,
   `time` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`sector_id`,`game_id`,`message_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `beta_key` (
   `code` char(5) NOT NULL DEFAULT '0',
   `used` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`code`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `blackjack` (
   `game_id` int NOT NULL DEFAULT '0',
   `account_id` int NOT NULL DEFAULT '0',
   `last_hand` varchar(255) NOT NULL,
   PRIMARY KEY (`game_id`,`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `bounty` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -436,14 +436,14 @@ CREATE TABLE IF NOT EXISTS `bounty` (
   `smr_credits` int unsigned NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`bounty_id`),
   KEY `account_id` (`account_id`,`game_id`,`claimer_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `cached_dummys` (
   `type` varchar(60) NOT NULL,
   `id` varchar(100) NOT NULL,
   `info` blob NOT NULL,
   PRIMARY KEY (`type`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `changelog` (
   `version_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -452,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `changelog` (
   `change_message` text NOT NULL,
   `affected_db` text NOT NULL,
   PRIMARY KEY (`changelog_id`,`version_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `chess_game` (
   `chess_game_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -462,7 +462,7 @@ CREATE TABLE IF NOT EXISTS `chess_game` (
   `white_id` int unsigned NOT NULL,
   `winner_id` int unsigned NOT NULL,
   PRIMARY KEY (`chess_game_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `chess_game_moves` (
   `chess_game_id` int unsigned NOT NULL,
@@ -478,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `chess_game_moves` (
   `en_passant` enum('TRUE','FALSE') DEFAULT 'FALSE',
   `promote_piece_id` int unsigned DEFAULT NULL,
   PRIMARY KEY (`chess_game_id`,`move_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `chess_game_pieces` (
   `chess_game_id` int unsigned NOT NULL,
@@ -488,13 +488,13 @@ CREATE TABLE IF NOT EXISTS `chess_game_pieces` (
   `x` int unsigned NOT NULL,
   `y` int unsigned NOT NULL,
   PRIMARY KEY (`chess_game_id`,`account_id`,`piece_id`,`piece_no`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `closing_reason` (
   `reason_id` int unsigned NOT NULL AUTO_INCREMENT,
   `reason` varchar(255) NOT NULL,
   PRIMARY KEY (`reason_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `combat_logs` (
   `log_id` mediumint unsigned NOT NULL AUTO_INCREMENT,
@@ -510,7 +510,7 @@ CREATE TABLE IF NOT EXISTS `combat_logs` (
   `saved` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`log_id`,`game_id`,`type`,`sector_id`,`timestamp`,`attacker_id`,`attacker_alliance_id`,`defender_id`,`defender_alliance_id`),
   KEY `game_id` (`game_id`,`type`,`sector_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `cpl_tag` (
   `account_id` int NOT NULL DEFAULT '0',
@@ -519,7 +519,7 @@ CREATE TABLE IF NOT EXISTS `cpl_tag` (
   `custom_rank` varchar(60) NOT NULL,
   `expires` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`custom`,`expires`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `debug` (
   `debug_type` varchar(100) NOT NULL,
@@ -527,13 +527,13 @@ CREATE TABLE IF NOT EXISTS `debug` (
   `value` double NOT NULL,
   `value_2` double NOT NULL DEFAULT '0',
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `draft_leaders` (
   `game_id` int unsigned NOT NULL,
   `account_id` int unsigned NOT NULL,
   PRIMARY KEY (`game_id`,`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `feature_request` (
   `feature_request_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -542,7 +542,7 @@ CREATE TABLE IF NOT EXISTS `feature_request` (
   `no` int NOT NULL,
   `status` enum('Opened','Implemented','Rejected','Deleted') NOT NULL,
   PRIMARY KEY (`feature_request_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `feature_request_comments` (
   `feature_request_id` int unsigned NOT NULL,
@@ -552,7 +552,7 @@ CREATE TABLE IF NOT EXISTS `feature_request_comments` (
   `anonymous` enum('TRUE','FALSE') NOT NULL DEFAULT 'TRUE',
   `text` text NOT NULL,
   PRIMARY KEY (`feature_request_id`,`comment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `federal_permits` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -560,7 +560,7 @@ CREATE TABLE IF NOT EXISTS `federal_permits` (
   `timeout` int unsigned NOT NULL DEFAULT '0',
   `race_id` tinyint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`account_id`,`race_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `force_refresh` (
   `game_id` int NOT NULL DEFAULT '0',
@@ -569,7 +569,7 @@ CREATE TABLE IF NOT EXISTS `force_refresh` (
   `num_forces` smallint NOT NULL DEFAULT '0',
   `refresh_at` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`owner_id`,`sector_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galactic_post_applications` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -578,7 +578,7 @@ CREATE TABLE IF NOT EXISTS `galactic_post_applications` (
   `written_before` enum('YES','NO') NOT NULL DEFAULT 'YES',
   `articles_per_day` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galactic_post_article` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -588,27 +588,27 @@ CREATE TABLE IF NOT EXISTS `galactic_post_article` (
   `text` text NOT NULL,
   `last_modified` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`article_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galactic_post_online` (
   `paper_id` int unsigned NOT NULL DEFAULT '0',
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `online_since` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`paper_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galactic_post_paper` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `paper_id` int unsigned NOT NULL DEFAULT '0',
   `title` varchar(100) NOT NULL,
   PRIMARY KEY (`game_id`,`paper_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galactic_post_paper_content` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `paper_id` int unsigned NOT NULL DEFAULT '0',
   `article_id` int unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galactic_post_writer` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -616,14 +616,14 @@ CREATE TABLE IF NOT EXISTS `galactic_post_writer` (
   `position` enum('editor','writer') NOT NULL DEFAULT 'editor',
   `last_wrote` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `galaxy` (
   `galaxy_id` int unsigned NOT NULL AUTO_INCREMENT,
   `galaxy_name` varchar(32) DEFAULT NULL,
   `galaxy_size` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`galaxy_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `game` (
   `game_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -645,11 +645,11 @@ CREATE TABLE IF NOT EXISTS `game` (
   `starting_credits` int unsigned NOT NULL,
   PRIMARY KEY (`game_id`),
   UNIQUE KEY `game_name` (`game_name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 PACK_KEYS=1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 PACK_KEYS=1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `game_disable` (
   `reason` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `game_galaxy` (
   `game_id` int unsigned NOT NULL,
@@ -660,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `game_galaxy` (
   `galaxy_type` enum('Racial','Neutral','Planet') NOT NULL,
   `max_force_time` int unsigned NOT NULL,
   PRIMARY KEY (`game_id`,`galaxy_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `game_news` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -668,7 +668,7 @@ CREATE TABLE IF NOT EXISTS `game_news` (
   `message` text NOT NULL,
   `time` int unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `good` (
   `good_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -678,19 +678,19 @@ CREATE TABLE IF NOT EXISTS `good` (
   `good_class` int unsigned NOT NULL DEFAULT '1',
   `align_restriction` smallint NOT NULL DEFAULT '0',
   PRIMARY KEY (`good_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `hardware_type` (
   `hardware_type_id` int unsigned NOT NULL AUTO_INCREMENT,
   `hardware_name` varchar(32) DEFAULT NULL,
   `cost` int unsigned DEFAULT NULL,
   PRIMARY KEY (`hardware_type_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `hidden_players` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `hill_timer` (
   `game_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -699,21 +699,21 @@ CREATE TABLE IF NOT EXISTS `hill_timer` (
   `alliance_id` smallint unsigned NOT NULL DEFAULT '0',
   `hill_type` tinyint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`sector_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `hof_visibility` (
   `type` varchar(255) NOT NULL,
   `visibility` enum('PUBLIC','ALLIANCE','PRIVATE') NOT NULL,
   PRIMARY KEY (`type`),
   KEY `visibility` (`visibility`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `irc_alliance_has_channel` (
   `channel` varchar(30) NOT NULL,
   `alliance_id` smallint unsigned NOT NULL,
   `game_id` smallint unsigned NOT NULL,
   PRIMARY KEY (`channel`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `irc_seen` (
   `seen_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -728,7 +728,7 @@ CREATE TABLE IF NOT EXISTS `irc_seen` (
   `seen_by` varchar(30) DEFAULT NULL,
   `registered_nick` varchar(30) NOT NULL,
   PRIMARY KEY (`seen_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `kills` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -740,7 +740,7 @@ CREATE TABLE IF NOT EXISTS `kills` (
   `time` int unsigned NOT NULL DEFAULT '0',
   `processed` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`game_id`,`dead_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `level` (
   `level_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -748,57 +748,57 @@ CREATE TABLE IF NOT EXISTS `level` (
   `requirement` int unsigned DEFAULT NULL,
   PRIMARY KEY (`level_id`),
   KEY `requirement` (`requirement`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `location` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `sector_id` int unsigned NOT NULL DEFAULT '0',
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`sector_id`,`location_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_is_bank` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_is_bar` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_is_fed` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_is_hq` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_is_ug` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_sells_hardware` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   `hardware_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`,`hardware_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_sells_ships` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   `ship_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`,`ship_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_sells_weapons` (
   `location_type_id` int unsigned NOT NULL DEFAULT '0',
   `weapon_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`,`weapon_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `location_type` (
   `location_type_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -808,7 +808,7 @@ CREATE TABLE IF NOT EXISTS `location_type` (
   `smc_type_id` int unsigned NOT NULL DEFAULT '0',
   `mgu_id` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`location_type_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `locks_queue` (
   `lock_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -819,26 +819,26 @@ CREATE TABLE IF NOT EXISTS `locks_queue` (
   PRIMARY KEY (`lock_id`,`game_id`,`sector_id`),
   KEY `timestamp` (`timestamp`),
   KEY `account_id` (`account_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `log_has_notes` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
   `notes` text NOT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `log_type` (
   `log_type_id` tinyint unsigned NOT NULL AUTO_INCREMENT,
   `log_type_entry` varchar(20) NOT NULL,
   PRIMARY KEY (`log_type_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `macro_check` (
   `account_id` int NOT NULL DEFAULT '0',
   `good` int NOT NULL DEFAULT '0',
   `bad` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `manual` (
   `topic_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -847,13 +847,13 @@ CREATE TABLE IF NOT EXISTS `manual` (
   `topic` varchar(100) NOT NULL,
   `text` longtext NOT NULL,
   PRIMARY KEY (`topic_id`,`parent_topic_id`,`order_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `mb_exceptions` (
   `type` varchar(16) NOT NULL,
   `value` varchar(128) NOT NULL,
   PRIMARY KEY (`type`,`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `mb_keywords` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -862,7 +862,7 @@ CREATE TABLE IF NOT EXISTS `mb_keywords` (
   `assoc` int NOT NULL DEFAULT '0',
   `use` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `message` (
   `message_id` mediumint unsigned NOT NULL AUTO_INCREMENT,
@@ -879,7 +879,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   PRIMARY KEY (`message_id`),
   KEY `send_time` (`send_time`),
   KEY `game_id` (`game_id`,`account_id`,`message_type_id`,`reciever_delete`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `message_blacklist` (
   `entry_id` smallint unsigned NOT NULL AUTO_INCREMENT,
@@ -888,7 +888,7 @@ CREATE TABLE IF NOT EXISTS `message_blacklist` (
   `blacklisted_id` smallint unsigned NOT NULL,
   PRIMARY KEY (`entry_id`),
   KEY `game_id` (`game_id`,`account_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `message_boxes` (
   `message_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -898,13 +898,13 @@ CREATE TABLE IF NOT EXISTS `message_boxes` (
   `box_type_id` tinyint unsigned NOT NULL,
   `message_text` text NOT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `message_box_types` (
   `box_type_id` tinyint unsigned NOT NULL,
   `box_type_name` varchar(32) NOT NULL,
   PRIMARY KEY (`box_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `message_notify` (
   `notify_id` int unsigned NOT NULL DEFAULT '0',
@@ -915,25 +915,25 @@ CREATE TABLE IF NOT EXISTS `message_notify` (
   `sent_time` int NOT NULL DEFAULT '0',
   `notify_time` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`notify_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `message_type` (
   `message_type_id` int unsigned NOT NULL AUTO_INCREMENT,
   `message_type_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`message_type_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `multi_checking` (
   `ips` longtext NOT NULL,
   `accounts` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `multi_checking_cookie` (
   `account_id` int NOT NULL DEFAULT '0',
   `array` text NOT NULL,
   `use` varchar(32) NOT NULL DEFAULT 'TRUE',
   PRIMARY KEY (`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `news` (
   `news_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -948,14 +948,14 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`news_id`),
   KEY `time` (`time`),
   KEY `game_id` (`game_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `newsletter` (
   `newsletter_id` int unsigned NOT NULL AUTO_INCREMENT,
   `newsletter_html` longtext NOT NULL,
   `newsletter_text` longtext NOT NULL,
   PRIMARY KEY (`newsletter_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `notification` (
   `notification_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -963,7 +963,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `account_id` int unsigned DEFAULT NULL,
   `time` int DEFAULT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='1 - validation code.' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 COMMENT='1 - validation code.' AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `npc_logins` (
   `login` varchar(32) NOT NULL,
@@ -973,7 +973,7 @@ CREATE TABLE IF NOT EXISTS `npc_logins` (
   `working` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`login`),
   UNIQUE KEY `player_name` (`player_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `npc_logs` (
   `log_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -984,7 +984,7 @@ CREATE TABLE IF NOT EXISTS `npc_logs` (
   `debug_info` text NOT NULL,
   `var` text NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `npc_long_term_goal` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -1008,14 +1008,14 @@ CREATE TABLE IF NOT EXISTS `open_forms` (
   `type` enum('FEATURE','BETA') NOT NULL,
   `open` enum('TRUE','FALSE') NOT NULL DEFAULT 'FALSE',
   PRIMARY KEY (`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `permission` (
   `permission_id` int unsigned NOT NULL AUTO_INCREMENT,
   `permission_name` varchar(32) NOT NULL,
   `link_to` varchar(50) NOT NULL,
   PRIMARY KEY (`permission_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `planet` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -1032,7 +1032,7 @@ CREATE TABLE IF NOT EXISTS `planet` (
   `busted_time` int unsigned NOT NULL DEFAULT '0',
   `last_updated` int unsigned NOT NULL,
   PRIMARY KEY (`game_id`,`sector_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `planet_attack` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
@@ -1086,7 +1086,7 @@ CREATE TABLE IF NOT EXISTS `planet_has_cargo` (
   `good_id` int unsigned NOT NULL DEFAULT '0',
   `amount` int unsigned DEFAULT NULL,
   PRIMARY KEY (`game_id`,`sector_id`,`good_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `planet_has_goods` (
   `game_id` smallint unsigned NOT NULL,
@@ -1159,7 +1159,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `alliance_join` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`game_id`),
   KEY `game_id` (`game_id`,`sector_id`,`land_on_planet`,`last_cpl_action`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_attacks_planet` (
   `game_id` int NOT NULL DEFAULT '0',
@@ -1193,7 +1193,7 @@ CREATE TABLE IF NOT EXISTS `player_can_fed` (
   `expiry` int unsigned NOT NULL,
   `allowed` enum('TRUE','FALSE') NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`race_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_has_alliance_role` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -1201,7 +1201,7 @@ CREATE TABLE IF NOT EXISTS `player_has_alliance_role` (
   `role_id` tinyint unsigned NOT NULL DEFAULT '0',
   `alliance_id` int unsigned NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`alliance_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_has_drinks` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -1219,7 +1219,7 @@ CREATE TABLE IF NOT EXISTS `player_has_gadget` (
   `equipped` int NOT NULL DEFAULT '0',
   `lasts_until` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`account_id`,`gadget_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_has_notes` (
   `note_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -1228,7 +1228,7 @@ CREATE TABLE IF NOT EXISTS `player_has_notes` (
   `note` mediumblob NOT NULL,
   PRIMARY KEY (`note_id`),
   KEY `game_id` (`game_id`,`account_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `player_has_relation` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -1244,7 +1244,7 @@ CREATE TABLE IF NOT EXISTS `player_has_special` (
   `stat_type_id` int NOT NULL,
   `amount` int NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`stat_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_has_stats` (
   `account_id` int NOT NULL DEFAULT '0',
@@ -1318,7 +1318,7 @@ CREATE TABLE IF NOT EXISTS `player_has_stats_cache` (
   `killed_ships` int NOT NULL DEFAULT '0',
   `died_ships` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_has_ticker` (
   `game_id` int NOT NULL DEFAULT '0',
@@ -1352,14 +1352,14 @@ CREATE TABLE IF NOT EXISTS `player_hof` (
   `amount` double unsigned NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`type`),
   KEY `type` (`type`,`game_id`,`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_is_president` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `race_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`race_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_joined_alliance` (
   `account_id` smallint unsigned NOT NULL,
@@ -1367,7 +1367,7 @@ CREATE TABLE IF NOT EXISTS `player_joined_alliance` (
   `alliance_id` smallint unsigned NOT NULL,
   `status` enum('NEWBIE','VETERAN') NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`alliance_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_plotted_course` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -1393,7 +1393,7 @@ CREATE TABLE IF NOT EXISTS `player_repaired` (
   `amount` int NOT NULL,
   `source` enum('Normal','Breakdown') NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`time`,`amount`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_visited_port` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
@@ -1402,14 +1402,14 @@ CREATE TABLE IF NOT EXISTS `player_visited_port` (
   `visited` int unsigned NOT NULL DEFAULT '0',
   `port_info_hash` char(32) CHARACTER SET ascii NOT NULL,
   PRIMARY KEY (`account_id`,`game_id`,`sector_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_visited_sector` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
   `game_id` smallint unsigned NOT NULL DEFAULT '0',
   `sector_id` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`game_id`,`sector_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `player_votes_pact` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -1479,7 +1479,7 @@ CREATE TABLE IF NOT EXISTS `port_info_cache` (
   `port_info_hash` char(32) CHARACTER SET ascii NOT NULL,
   `port_info` mediumblob NOT NULL,
   PRIMARY KEY (`game_id`,`sector_id`,`port_info_hash`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `profile` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -1521,7 +1521,7 @@ CREATE TABLE IF NOT EXISTS `rankings` (
   `kills_needed` int unsigned NOT NULL DEFAULT '0',
   `experience_needed` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`rankings_id`,`kills_needed`,`experience_needed`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `route_cache` (
   `game_id` int unsigned NOT NULL,
@@ -1534,7 +1534,7 @@ CREATE TABLE IF NOT EXISTS `route_cache` (
   `max_distance` int NOT NULL,
   `routes` blob NOT NULL,
   PRIMARY KEY (`game_id`,`max_ports`,`goods_allowed`,`races_allowed`,`start_sector_id`,`end_sector_id`,`routes_for_port`,`max_distance`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `sector` (
   `sector_id` int unsigned NOT NULL DEFAULT '0',
@@ -1602,7 +1602,7 @@ CREATE TABLE IF NOT EXISTS `ship_has_name` (
   `account_id` int NOT NULL DEFAULT '0',
   `ship_name` varchar(128) NOT NULL,
   PRIMARY KEY (`game_id`,`account_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `ship_has_weapon` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
@@ -1616,7 +1616,7 @@ CREATE TABLE IF NOT EXISTS `ship_is_cloaked` (
   `account_id` int unsigned NOT NULL DEFAULT '0',
   `game_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`game_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `ship_type` (
   `ship_type_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -1628,27 +1628,27 @@ CREATE TABLE IF NOT EXISTS `ship_type` (
   `lvl_needed` int unsigned NOT NULL DEFAULT '0',
   `buyer_restriction` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ship_type_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `ship_type_support_hardware` (
   `ship_type_id` int unsigned NOT NULL DEFAULT '0',
   `hardware_type_id` int unsigned NOT NULL DEFAULT '0',
   `max_amount` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ship_type_id`,`hardware_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `temp` (
   `text` varchar(100) NOT NULL,
   `intid` int NOT NULL AUTO_INCREMENT,
   `amount` int NOT NULL,
   PRIMARY KEY (`text`,`intid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `user_rankings` (
   `rank` tinyint unsigned NOT NULL AUTO_INCREMENT,
   `rank_name` varchar(32) NOT NULL,
   PRIMARY KEY (`rank`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `version` (
   `version_id` smallint unsigned NOT NULL AUTO_INCREMENT,
@@ -1657,42 +1657,42 @@ CREATE TABLE IF NOT EXISTS `version` (
   `patch_level` tinyint unsigned NOT NULL DEFAULT '0',
   `went_live` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`version_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `vote_links` (
   `account_id` smallint unsigned NOT NULL DEFAULT '0',
   `link_id` tinyint NOT NULL DEFAULT '0',
   `timeout` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`,`link_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `voting` (
   `vote_id` int unsigned NOT NULL AUTO_INCREMENT,
   `question` text NOT NULL,
   `end` int unsigned NOT NULL,
   PRIMARY KEY (`vote_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `voting_options` (
   `vote_id` int NOT NULL,
   `option_id` int NOT NULL AUTO_INCREMENT,
   `text` text NOT NULL,
   PRIMARY KEY (`vote_id`,`option_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `voting_results` (
   `account_id` int unsigned NOT NULL,
   `vote_id` int unsigned NOT NULL,
   `option_id` int unsigned NOT NULL,
   PRIMARY KEY (`account_id`,`vote_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `warp` (
   `game_id` int unsigned NOT NULL DEFAULT '0',
   `sector_id_1` int unsigned NOT NULL DEFAULT '0',
   `sector_id_2` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`game_id`,`sector_id_1`,`sector_id_2`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `weapon_type` (
   `weapon_type_id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -1706,7 +1706,7 @@ CREATE TABLE IF NOT EXISTS `weapon_type` (
   `buyer_restriction` int unsigned DEFAULT NULL,
   PRIMARY KEY (`weapon_type_id`),
   KEY `weapon_name` (`weapon_name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `weighted_random` (
   `game_id` int unsigned NOT NULL,
@@ -1715,14 +1715,14 @@ CREATE TABLE IF NOT EXISTS `weighted_random` (
   `type_id` int unsigned NOT NULL,
   `weighting` int NOT NULL,
   PRIMARY KEY (`game_id`,`account_id`,`type`,`type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 
 CREATE TABLE IF NOT EXISTS `word_filter` (
   `word_id` int unsigned NOT NULL AUTO_INCREMENT,
   `word_value` varchar(255) NOT NULL,
   `word_replacement` varchar(255) NOT NULL,
   PRIMARY KEY (`word_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1 ;
 
 INSERT INTO `bar_drink` (`drink_id`, `drink_name`) VALUES
 (1, 'Spooky Midnight Special'),

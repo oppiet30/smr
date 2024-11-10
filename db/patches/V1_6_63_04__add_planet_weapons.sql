@@ -5,4 +5,4 @@ CREATE TABLE planet_has_weapon (
   order_id smallint unsigned NOT NULL,
   weapon_type_id smallint unsigned NOT NULL,
   PRIMARY KEY (game_id, sector_id, order_id)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;

@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS `draft_history` (
   `picked_account_id` smallint unsigned NOT NULL,
   `time` int unsigned NOT NULL,
   PRIMARY KEY (`draft_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48 AUTO_INCREMENT=1;

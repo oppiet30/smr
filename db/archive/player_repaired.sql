@@ -26,4 +26,4 @@ CREATE TABLE `player_repaired` (
   `amount` int(10) NOT NULL,
   `source` enum('Normal','Breakdown') NOT NULL,
   PRIMARY KEY  (`account_id`,`game_id`,`time`,`amount`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;

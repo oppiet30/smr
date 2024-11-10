@@ -4,5 +4,5 @@ CREATE TABLE smr_new.`port_info_cache` (
   `port_info_hash` char(32) NOT NULL,
   `port_info` mediumblob NOT NULL,
   PRIMARY KEY (`game_id`,`sector_id`,`port_info_hash`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8MB48;
 ALTER TABLE smr_new.`player_visited_port` ADD `port_info_hash` CHAR( 32 ) NOT NULL;
